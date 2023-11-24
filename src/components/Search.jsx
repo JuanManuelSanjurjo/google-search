@@ -1,8 +1,12 @@
 import React from 'react'
+import Anchors from './Anchors'
+
 
 function Search() {
   return (
-    <div></div>
+    <div>
+      <Anchors />
+    </div>
   )
 }
 

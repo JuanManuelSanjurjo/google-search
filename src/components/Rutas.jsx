@@ -7,7 +7,7 @@ function Rutas() {
   const location = useLocation()
 
   useEffect(() => {
-    if(location.pathname === "/") navigate('/search');
+    if(location.pathname === "/") navigate('/websearch');
   }, []);
   
   return (
@@ -15,10 +15,10 @@ function Rutas() {
       <Routes>
         <Route exact path="/" />
 
-        <Route exact path='/search' element={<Results />} />
-        <Route exact path='/images' element={<Results />} />
-        <Route exact path='/news' element={<Results />} />
-        <Route exact path='/videos' element={<Results />} />
+        <Route exact path='/websearch' element={<Results />} />
+        <Route exact path='/imagesearch' element={<Results />} />
+        <Route exact path='/' element={<Results />} />
+        <Route exact path='/videosearch' element={<Results />} />
             
       </Routes>
     </div>
