@@ -16,7 +16,7 @@ function Results() {
         }
     }, [searchTerm, location.pathname])
 
-    if (isLoading) return <Loading />
+    if (!isLoading) return <Loading />
 
 
     switch(location.pathname){
@@ -46,7 +46,7 @@ function Results() {
         case "/imagesearch":
             return (
                 <div className='flex flex-wrap justify-center items-center'>
-                    {results?.result.map(({image, title, thumbnai, url }, i) => {
+                    {results?.result?.map(({image, title, thumbnail, url }, i) => {
                         (
                             <a className='sm:p-3 p-5' href='{url}' target='_blank' rel='nonreferrer'>
 
@@ -67,7 +67,7 @@ function Results() {
                     {
                         results?.result?.map(({title, uploader, content, duration, embed_html, publisher}, i) => (
                             <div key={i}>
-                                <ReactPlayer  url={content} controls width="355px" height="200px"/>
+                                {content && <ReactPlayer  url={content} controls width="355px" height="200px"/>}
                             </div>
                         ))
                     }
@@ -85,13 +85,17 @@ function Results() {
                             <p className='text-sm'>
                                 {url.length > 30 ? href.substring(0,30) + "..." : url}
                             </p>
+                        </a>
+                        
                             <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
-                                {title} {source}
+                                {title} 
+                                <a href={source} target='_blank' rel="nonreferrer">
+                                    {source}
+                                </a>
                             </p>
                             <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
                                 {body.length > 30 ? href.substring(0,60) + "..." : body}
                             </p>
-                        </a>
                     </div>
                     )
                 )}

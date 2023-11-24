@@ -4,9 +4,9 @@ import {InfinitySpin}  from "react-loader-spinner"
 
 function Loading() {
   return (
-    <div>
-       <InfinitySpin 
-            // type="puff"
+    <div className='flex justify-center items-center'>
+      <InfinitySpin  
+            className='self-center'
             width='200'
             height='500'
             color="#00bfff"
