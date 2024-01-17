@@ -7,4 +7,4 @@ Technologies
 - Vite
 - React (context , debounce, react-dom)
 - Tailwind CSSs
-- 
+  
